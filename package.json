@@ -1,5 +1,5 @@
 {
-  "name": "manager",
+  "name": "ng2-electron-boiler",
   "version": "0.0.0",
   "license": "MIT",
   "main": "index.js",
