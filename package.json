@@ -2,13 +2,16 @@
   "name": "manager",
   "version": "0.0.0",
   "license": "MIT",
+  "main": "index.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": " ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "electron": "cross-env NODE_ENV=development electron .",
+    "build-electron": "cross-env NODE_ENV=production  npm run build && electron-packager ./ App --arch ia32 --platform win32 --out ./electron/ --version $npm_package_version --overwrite "
   },
   "private": true,
   "dependencies": {
@@ -21,7 +24,14 @@
     "@angular/platform-browser": "^4.2.4",
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
+    "angular2-materialize": "^15.1.10",
     "core-js": "^2.4.1",
+    "electron": "^1.7.9",
+    "electron-packager": "^10.1.0",
+    "hammerjs": "^2.0.8",
+    "jquery": "^3.2.1",
+    "material-design-icons": "^3.0.1",
+    "materialize-css": "^0.100.2",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
   },
