@@ -1,0 +1,10 @@
+<div class="msg" *ngIf="!activeTask">
+  <h1>No Active Tasks</h1>
+</div>
+<div class="list" *ngIf="activeTask">
+  <h1>Time Left {{timer}}</h1>
+  <h2>Current Task: {{activeTask.title}}</h2>
+  <a class="waves-effect green btn" (click)="startTimer()">Start Timer</a>
+  <a class="waves-effect waves-light btn" (click)="deactiveTask()">Deactive Task</a>
+
+</div>

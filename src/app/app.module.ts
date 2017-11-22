@@ -4,13 +4,24 @@ import { MaterializeModule } from 'angular2-materialize';
 
 import { AppComponent } from './app.component';
 
+import { AllTasksComponent } from './pages/all-tasks/all-tasks.component';
+import { ActiveTasksComponent } from './pages/active-tasks/active-tasks.component';
+
+//Routes
+import { routing } from './app.routing';
+import { SettingsComponent } from './pages/settings/settings.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AllTasksComponent,
+    ActiveTasksComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
-    MaterializeModule
+    MaterializeModule,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]

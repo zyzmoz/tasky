@@ -1,0 +1,14 @@
+.msg {
+  padding: 20% 0;
+  text-align: center;
+}
+
+.list {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.btn {
+  display: block;
+  margin-top: 8px;
+}
