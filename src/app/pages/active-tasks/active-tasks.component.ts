@@ -23,11 +23,16 @@ export class ActiveTasksComponent implements OnInit {
   }
 
   startTimer(){
+    this.setTimer(0);
+    this.activeTask.done = false;
     console.log('start timer');
     let subs = this.clock.subscribe(t => {
       this.setTimer(1);
-      if (this.elapsed === this.activeTask.duration)
+      if (this.elapsed === this.activeTask.duration){
+        this.elapsed = 0;
+        this.activeTask.done = true;
         subs.unsubscribe();
+      }
     });
   }
 
