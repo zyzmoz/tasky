@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MaterializeModule } from 'angular2-materialize';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
@@ -24,6 +25,7 @@ import { TaskService } from './providers/task.service';
   imports: [
     BrowserModule,
     MaterializeModule,
+    FormsModule,
     routing
   ],
   providers: [TaskService],

@@ -37,6 +37,24 @@ export class TaskService {
   }
 
   addTask(obj){
+    let duration;
+    switch (this.settings.unit) {
+      case "1":
+        duration = this.settings.defaultDuration;
+        break;
+      case "2":
+        duration = this.settings.defaultDuration * 60;
+        break;
+      case "3":
+        duration = (this.settings.defaultDuration * 60) * 60;
+        break;
+      default:
+        console.log('NaN');
+
+    }
+
+    obj.duration = duration;
+    console.log(obj);
     this.taskList.push(obj);
     return this.taskList;
   }
@@ -49,8 +67,12 @@ export class TaskService {
   setTaskActive(index) {
     this.taskList[index].active = true;
     this.activeTask = this.taskList[index];
-    console.log(this.activeTask);
     return this.taskList;
+  }
+
+  deactiveTask(obj){
+    const index = this.taskList.indexOf(obj);
+    this.taskList[index].active = false;
   }
 
   getDurationText(duration){

@@ -10,6 +10,7 @@
 <div class="list" *ngIf="activeTask && !activeTask.done">
   <h1>Time Left {{timer}}</h1>
   <h2>Current Task: {{activeTask.title}}</h2>
-  <a class="waves-effect green btn" (click)="startTimer()">Start Timer</a>
+  <a class="waves-effect green btn" *ngIf="!clock" (click)="startTimer()">Start Timer</a>
+  <a class="waves-effect red btn" *ngIf="clock" (click)="stopTimer()">Stop Timer</a>
   <a class="waves-effect waves-light btn" (click)="deactiveTask()">Deactive Task</a>
 </div>

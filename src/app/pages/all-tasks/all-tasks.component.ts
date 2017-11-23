@@ -30,7 +30,7 @@ export class AllTasksComponent implements OnInit {
   addTask(text){
     let obj = {
       title: text.value,
-      duration: 15,
+      duration: 0,      
       active: false
     }
     this.tasks = [];
