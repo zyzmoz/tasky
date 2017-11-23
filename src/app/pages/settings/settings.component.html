@@ -15,9 +15,9 @@
             <label>Units</label>
             <select #unit class="browser-default">
               <option value="" disabled selected>Choose your option</option>
-              <option [selected]="_task.settings.unit === 1" value="1">Seconds</option>
-              <option [selected]="_task.settings.unit === 2" value="2">Minutes</option>
-              <option [selected]="_task.settings.unit === 3" value="3">Hours</option>              
+              <option [selected]="_task.settings.unit === '1'" value="1">Seconds</option>
+              <option [selected]="_task.settings.unit === '2'" value="2">Minutes</option>
+              <option [selected]="_task.settings.unit === '3'" value="3">Hours</option>              
             </select>
           </div>
         </div>
