@@ -1,3 +1,31 @@
-<p>
-  settings works!
-</p>
+<div class="content">
+  <div class="card grey lighten-4">
+    <div class="card-content">
+      <div class="card-title">
+        <p>Settings</p>
+      </div>
+      <div class="card-action">
+        <div class="row">
+          <div class="col s12">
+            <div class="input-field">
+              <label>Default Duration</label>
+              <input #duration value="{{_task.settings.defaultDuration}}" type="number" />
+            </div>
+
+            <label>Units</label>
+            <select #unit class="browser-default">
+              <option value="" disabled selected>Choose your option</option>
+              <option [selected]="_task.settings.unit === 1" value="1">Seconds</option>
+              <option [selected]="_task.settings.unit === 2" value="2">Minutes</option>
+              <option [selected]="_task.settings.unit === 3" value="3">Hours</option>
+              <!-- [attr-selected]="var"  -->
+            </select>
+          </div>
+        </div>
+        <button class="waves-effect btn blue right" (click)="saveSettings(duration.value, unit.value)">Save</button>
+      </div>
+    </div>
+  </div>
+  <button class="waves-effect btn red block">Reset Settings</button>
+
+</div>

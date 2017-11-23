@@ -11,6 +11,9 @@ import { ActiveTasksComponent } from './pages/active-tasks/active-tasks.componen
 import { routing } from './app.routing';
 import { SettingsComponent } from './pages/settings/settings.component';
 
+//providers
+import { TaskService } from './providers/task.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +26,7 @@ import { SettingsComponent } from './pages/settings/settings.component';
     MaterializeModule,
     routing
   ],
-  providers: [],
+  providers: [TaskService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

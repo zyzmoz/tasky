@@ -5,8 +5,7 @@ import { Observable } from  'rxjs/Rx';
 @Component({
   selector: 'app-active-tasks',
   templateUrl: './active-tasks.component.html',
-  styleUrls: ['./active-tasks.component.css'],
-  providers: [TaskService]
+  styleUrls: ['./active-tasks.component.css']
 })
 export class ActiveTasksComponent implements OnInit {
   activeTask: any = null;
@@ -14,12 +13,14 @@ export class ActiveTasksComponent implements OnInit {
   elapsed: number = 0;
   clock : any = null;
   constructor(private _task : TaskService) {
-    this.activeTask = this._task.getActiveTask();
-    this.setTimer(0);
-    this.clock = Observable.timer(1000,1000);
+
   }
 
   ngOnInit() {
+    this.activeTask = this._task.getActiveTask();
+    if (this.activeTask)
+      this.setTimer(0);
+    this.clock = Observable.timer(1000,1000);
   }
 
   startTimer(){
