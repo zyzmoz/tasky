@@ -5,7 +5,7 @@ export class TaskService {
   activeTask : any = null;
   settings: any = {
     defaultDuration: 10,
-    unit: 1
+    unit: "1"
   }
 
   taskList : any[] = [
@@ -38,6 +38,7 @@ export class TaskService {
 
   addTask(obj){
     let duration;
+    console.log(this.settings.unit);
     switch (this.settings.unit) {
       case "1":
         duration = this.settings.defaultDuration;

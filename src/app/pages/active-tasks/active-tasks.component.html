@@ -1,7 +1,7 @@
 <div class="msg" *ngIf="!activeTask">
   <h1>No Active Tasks</h1>
 </div>
-<div class="msg" *ngIf="activeTask && activeTask.done">
+<div class="msg-done" *ngIf="activeTask && activeTask.done">
   <h1><i class="material-icons large">check_circle</i></h1>
   <h1>{{activeTask.title}} Done!</h1>
   <a class="waves-effect green btn" (click)="startTimer()">Restart Timer</a>
