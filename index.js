@@ -7,9 +7,9 @@ const { app, BrowserWindow } = electron;
 let mainWindow;
 let tray;
 
-app.on('ready', () => {  
+app.on('ready', () => {
   mainWindow = new BrowserWindow({
-    height: 540,
+    height: 560,
     width: 365,
     frame: false,
     resizable: false,
