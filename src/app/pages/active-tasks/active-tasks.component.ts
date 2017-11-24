@@ -2,6 +2,10 @@ import { Component, OnInit, Input} from '@angular/core';
 import { TaskService } from '../../providers/task.service';
 import { Observable } from  'rxjs/Rx';
 
+
+
+
+
 @Component({
   selector: 'app-active-tasks',
   templateUrl: './active-tasks.component.html',
@@ -12,6 +16,7 @@ export class ActiveTasksComponent implements OnInit {
   timer: String;
   elapsed: number = 0;
   clock : any = null;
+
   constructor(private _task : TaskService) {
 
   }
@@ -29,6 +34,7 @@ export class ActiveTasksComponent implements OnInit {
     console.log('start timer');
     this.clock = Observable.timer(1000, 1000).subscribe(t => {
       this.setTimer(1);
+      this.updateTrayText(this.timer);
       if (this.elapsed === this.activeTask.duration){
         this.elapsed = 0;
         this.activeTask.done = true;
@@ -45,7 +51,7 @@ export class ActiveTasksComponent implements OnInit {
   deactiveTask() {
     if (this.clock)
       this.clock.unsubscribe();
-      
+
     this._task.deactiveTask(this.activeTask);
     this.activeTask = null;
   }
@@ -76,5 +82,16 @@ export class ActiveTasksComponent implements OnInit {
       this.timer += seconds+'';
     }
   }
+
+  //Electron handlers
+  updateTrayText(title){
+    //this.ipc.ipcRenderer.send("update-timer", title);
+  }
+
+  timerHasExpired(){
+    //ipcRenderer.send("update-timer", "");
+  }
+
+  //End Handlers
 
 }

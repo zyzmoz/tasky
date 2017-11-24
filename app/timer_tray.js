@@ -4,12 +4,11 @@ const { Tray, app, Menu } = electron;
 class TimerTray extends Tray {
   constructor(iconPath, mainWindow){
     super(iconPath);
-
     this.mainWindow = mainWindow;
     this.setToolTip('Timer App');
     //inherit
     this.on('click', this.onClick.bind(this));
-    this.on('right-click', this.onRightClick.bind(this));
+    this.on('right-click', this.onRightClick.bind(this));    
   }
 
   onClick(event, bounds){
@@ -17,7 +16,9 @@ class TimerTray extends Tray {
     //window height and width
     const { height, width } = this.mainWindow.getBounds();
 
+
     if (this.mainWindow.isVisible()){
+      console.log('hide');
       this.mainWindow.hide();
     } else {
       const yPosition = process.platform === 'darwin' ? y : (y - height) + 30;
@@ -28,6 +29,7 @@ class TimerTray extends Tray {
         height,
         width
       });
+      console.log('show');
       this.mainWindow.show();
     }
   }

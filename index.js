@@ -1,30 +1,15 @@
 const path = require('path');
 const electron = require('electron');
 const TimerTray = require('./app/timer_tray');
+const MainWindow = require('./app/main_window');
 
-const { app, BrowserWindow } = electron;
+const { app, ipcMain } = electron;
 
 let mainWindow;
 let tray;
 
 app.on('ready', () => {
-  mainWindow = new BrowserWindow({
-    height: 560,
-    width: 365,
-    frame: false,
-    resizable: false,
-    show: false
-  });
-
-  if (process.env.NODE_ENV === 'development') {
-    mainWindow.loadURL('http://localhost:4200');
-  } else {
-    mainWindow.loadURL(`file://${__dirname}/dist/index.html`);
-  }
-
-  mainWindow.on('blur', () =>{
-    mainWindow.hide();
-  });
+  mainWindow = new MainWindow;
 
   const iconName = process.platform === 'win32' ? 'windows-icon.png' : 'iconTemplate.png';
   const iconPath = path.join(__dirname, `./src/assets/${iconName}`);
@@ -37,4 +22,8 @@ app.on('window-all-closed', function () {
   if (process.platform != 'darwin') {
     app.quit();
   }
+});
+
+ipcMain.on('update-timer', (event, timeLeft) => {
+  tray.setTitle = timerLeft;
 });
